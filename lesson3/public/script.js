@@ -4,12 +4,12 @@ function setup() {
     background('#acacac');
 
     socket = io.connect('http://localhost:3000')
-    socket.on('mousem', newDrawing);
+    socket.on('mouse', newDrawing);
 
 }
 function newDrawing(data) {
-    noStroke();
-    fill(255);
+    stroke("aqua");
+    fill(0,0,0);
     ellipse(data.x, data.y, 36, 36);
 }
 function mouseDragged() {
@@ -19,7 +19,7 @@ function mouseDragged() {
         y: mouseY
     }
     socket.emit('mouse', data);
-    noStroke();
+    stroke("aqua");
     fill(255);
     ellipse(data.x, data.y, 36, 36)
 
