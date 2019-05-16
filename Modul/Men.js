@@ -1,4 +1,5 @@
-class Men extends LivingCreature{
+var LivingCreature = require("./LivingCreature.js");
+module.exports = class Men extends LivingCreature{
     constructor(x,y,index){
         super(x,y,index)
         this.energy=13;
@@ -20,7 +21,7 @@ class Men extends LivingCreature{
        return super.chooseCell(character)
     }
     mul(){
-        var newCell = random(this.chooseCell(0));
+        var newCell = function(arr){return arr[Math.floor(Math.random()*arr.length)];}
         if (this.energy >= 15 && newCell) {
             var newMen = new Men(newCell[0], newCell[1], this.index);
             MenArr.push(newMen);
@@ -30,10 +31,10 @@ class Men extends LivingCreature{
     }
     Walking(){
         var walking = [];
-        var newCell = random(this.chooseCell(1));
-        var newCell1 = random(this.chooseCell(0));
+        var newCell = function(arr){return arr[Math.floor(Math.random(1)*arr.length)];}
+        var newCell1 = function(arr){return arr[Math.floor(Math.random(0)*arr.length)];}
         walking.push(newCell, newCell1);
-        var wal = random(walking);
+        var wal = function(arr){return arr[Math.floor(Math.random(walking)*arr.length)];}
         if (wal) {
             if (wal == newCell) {
                 this.energy--;
@@ -62,11 +63,11 @@ class Men extends LivingCreature{
 
     eat() {
         var utel = [];
-        var newCell = random(this.chooseCell(4));
-        var newCell1 = random(this.chooseCell(2));
-        var newCell2 = random(this.chooseCell(3));
+        var newCell = function(arr){return arr[Math.floor(Math.random(4)*arr.length)];}
+        var newCell1 = function(arr){return arr[Math.floor(Math.random(2)*arr.length)];}
+        var newCell2 = function(arr){return arr[Math.floor(Math.random(3)*arr.length)];};
         utel.push(newCell, newCell1, newCell2);
-        var eat = random(utel);
+        var eat = function(arr){return arr[Math.floor(Math.random(utel)*arr.length)];}
         if (eat) {
             if (newCell) {
                 var x = newCell[0];

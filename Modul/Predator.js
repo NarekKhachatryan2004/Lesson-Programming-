@@ -1,4 +1,5 @@
-class Predator extends LivingCreature{
+var LivingCreature = require("./LivingCreature.js");
+module.exports = class Predator extends LivingCreature{
     constructor(x,y,index){
         super(x,y,index);
         this.energy=9;
@@ -38,7 +39,7 @@ class Predator extends LivingCreature{
     }
 
     mul() {
-        var newCell = random(this.chooseCell(0));
+        var newCell =RANDOM= function(arr){return arr[Math.floor(Math.random()*arr.length)];}
         if (this.energy >= 11 && newCell) {
             var newPredator = new Predator(newCell[0], newCell[1], this.index);
             PredatorArr.push(newPredator);
@@ -47,7 +48,7 @@ class Predator extends LivingCreature{
         }
     }
     move() {
-        var newCell = random(this.chooseCell(0));
+        var newCell =RANDOM= function(arr){return arr[Math.floor(Math.random()*arr.length)];}
         if (newCell) {
             this.energy--;
             var x = newCell[0];
@@ -59,7 +60,7 @@ class Predator extends LivingCreature{
         }
     }
     eat() {
-        var grassEater = random(this.chooseCell(2));
+        var grassEater =RANDOM= function(arr){return arr[Math.floor(Math.random(2)*arr.length)];}
         if (grassEater) {
             var x = grassEater[0];
             var y = grassEater[1];

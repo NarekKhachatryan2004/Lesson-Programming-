@@ -1,4 +1,5 @@
-class MostOfAll extends LivingCreature{
+var LivingCreature = require("./LivingCreature.js");
+module.exports = class MostOfAll extends LivingCreature{
     constructor(x,y,index){
         super(x,y,index)
 this.energy=10;
@@ -64,7 +65,7 @@ this.energy=10;
 
 
     mul() {
-        var newCell = random(this.chooseCell(0));
+        var newCell =RANDOM= function(arr){return arr[Math.floor(Math.random()*arr.length)];}
         if (this.energy >= 11 && newCell) {
             var newMostOfAll = new MostOfAll(newCell[0], newCell[1], this.index);
             MostOfAllArr.push(newMostOfAll);
@@ -73,7 +74,7 @@ this.energy=10;
         }
     }
     move() {
-        var newCell = random(this.chooseCell(0));
+        var newCell =RANDOM= function(arr){return arr[Math.floor(Math.random()*arr.length)];}
         if (newCell) {
             this.energy--;
             var x = newCell[0];
@@ -86,11 +87,11 @@ this.energy=10;
     }
     eat() {
         var utel = [];
-        var newCell = random(this.chooseCell(2));
-        var newCell1 = random(this.chooseCell(3));
-        var newCell2 = random(this.chooseCell(1));
+        var newCell =RANDOM= function(arr){return arr[Math.floor(Math.random(2)*arr.length)];}
+        var newCell1 =RANDOM= function(arr){return arr[Math.floor(Math.random(3)*arr.length)];}
+        var newCell2 =RANDOM= function(arr){return arr[Math.floor(Math.random(1)*arr.length)];}
         utel.push(newCell, newCell1, newCell2);
-        var eat = random(utel);
+        var eat =RANDOM= function(arr){return arr[Math.floor(Math.random(utel)*arr.length)];}
         if (eat) {
             if (eat == newCell1) {
                 var x = newCell1[0];
